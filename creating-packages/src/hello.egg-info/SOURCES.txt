@@ -1,0 +1,10 @@
+MANIFEST.in
+setup.py
+src/hello/__init__.py
+src/hello/hello.py
+src/hello/languages.txt
+src/hello/main.py
+src/hello.egg-info/PKG-INFO
+src/hello.egg-info/SOURCES.txt
+src/hello.egg-info/dependency_links.txt
+src/hello.egg-info/top_level.txt
