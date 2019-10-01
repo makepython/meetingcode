@@ -7,6 +7,7 @@ def number_generator():
     for i in range(50,53):
         yield i
     yield 0
+    return 42
 
 g = number_generator()
 print(next(g))
@@ -24,6 +25,7 @@ try:
     print(next(g))
 except StopIteration as e:
     print(e.__class__)
+    print(e.value)
 
 g = number_generator()
 for entry in g:

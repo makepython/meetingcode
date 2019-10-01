@@ -35,6 +35,4 @@ class Whatever2(metaclass=MyMeta):
 
 w = Whatever2()
 
-Whatever2.whatever()
-w.whatever()
 
