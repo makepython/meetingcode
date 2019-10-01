@@ -1,16 +1,16 @@
 class NonDataDescriptor(object):
-    def __get__(self, *args, **kwargs):
-        print("NonDataDescriptor __get__", args, kwargs)
+    def __get__(self, instance, owner):
+        print("NonDataDescriptor __get__", instance, owner)
         return 5
 
 
 class DataDescriptor(object):
-    def __get__(self, *args, **kwargs):
-        print("DataDescriptor __get__", args, kwargs)
+    def __get__(self, instance, owner):
+        print("DataDescriptor __get__", instance, owner)
         return 5
 
-    def __set__(self, *args, **kwargs):
-        print("DataDescriptor __set__", args, kwargs)
+    def __set__(self, instance, value):
+        print("DataDescriptor __set__", instance, value)
 
 
 
@@ -23,4 +23,11 @@ class MyClass(object):
 my = MyClass()
 print(my.nondata)
 print(my.data)
+print(MyClass.nondata)
+print(MyClass.data)
 my.data = 3
+print("XXX")
+print(MyClass.data)
+MyClass.data = 7
+print(MyClass.data)
+my.data = 6
