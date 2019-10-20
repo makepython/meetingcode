@@ -2,9 +2,7 @@ from __future__ import print_function
 
 from abc import ABCMeta, abstractmethod
 
-class Button:
-    __metaclass__ = ABCMeta
-
+class Button(metaclass=abc.ABCMeta):
     @abstractmethod
     def paint(self):
         pass
@@ -21,9 +19,8 @@ class MacOSButton(Button):
     def paint(self):
         return "Render a button in a MacOS style"
 
-class GUIFactory:
-    __metaclass__ = ABCMeta
 
+class GUIFactory(metaclass=abc.ABCMeta):
     @abstractmethod
     def create_button(self):
         pass
@@ -53,7 +50,6 @@ else:
         "Not implemented for your platform: {}".format(appearance)
     )
 
-if factory:
-    button = factory.create_button()
-    result = button.paint()
-    print(result)
+button = factory.create_button()
+result = button.paint()
+print(result)
