@@ -1,0 +1,13 @@
+Basic usage:
+create table
+column types
+column attributes: primary key
+column constraints: unique
+select, insert, delete, update
+where clause
+
+----
+
+- foreign keys, referential integrity, normalization
+- one-to-many, many-to-many
+
