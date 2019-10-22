@@ -2,12 +2,25 @@ Basic usage:
 create table
 column types
 column attributes: primary key
+
 column constraints: unique
 select, insert, delete, update
 where clause
+group by
+distinct
 
 ----
 
 - foreign keys, referential integrity, normalization
-- one-to-many, many-to-many
+- one-to-many, many-to-many: intersection tables
 
+----
+transactions
+isolation levels
+
+
+-----
+database design
+
+primary key choice: natural vs surrogate
+EAV
