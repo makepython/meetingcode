@@ -15,10 +15,7 @@ fileConfig(config.config_file_name)
 
 # add your model's MetaData object here
 # for 'autogenerate' support
-import os
-import sys
-sys.path.append(os.path.abspath("."))
-import orm
+from alembiccing import orm
 target_metadata = orm.Base.metadata
 # target_metadata = None
 
