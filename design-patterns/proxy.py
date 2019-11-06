@@ -1,18 +1,11 @@
-"""
-Proxy pattern example.
-"""
+# Proxy: change the behavior, but not the interface.
 from abc import ABCMeta, abstractmethod
 
 
-NOT_IMPLEMENTED = "You should implement this."
-
-
-class AbstractCar:
-    __metaclass__ = ABCMeta
-
+class AbstractCar(metaclass=ABCMeta):
     @abstractmethod
     def drive(self):
-        raise NotImplementedError(NOT_IMPLEMENTED)
+        pass
 
 
 class Car(AbstractCar):
