@@ -1,3 +1,6 @@
+# Don't do this.
+
+
 class MySingleton:
     _instance = None
     @classmethod
@@ -6,7 +9,6 @@ class MySingleton:
             cls._instance = cls()
 
         return cls._instance
-
 
 
 print(MySingleton.instance())

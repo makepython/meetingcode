@@ -1,5 +1,7 @@
-_instance = None
+# Don't do this
 
+
+_instance = None
 
 class MySingleton:
     pass
