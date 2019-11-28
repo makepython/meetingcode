@@ -24,3 +24,52 @@ database design
 
 primary key choice: natural vs surrogate
 EAV
+
+
+-----
+https://www.ncbi.nlm.nih.gov/genome/browse/#!/overview/
+https://www.ncbi.nlm.nih.gov/home/about/policies/
+
+git pull
+bunzip2 genomes.csv.bz2
+
+create database (if not exist)
+create table genomes
+    (id integer auto_increment primary key,
+     organism_name varchar(512) not null,
+     organism_groups varchar(1024),
+     size float,
+     chromosomes integer,
+     organelles integer,
+     plasmids integer,
+     assemblies integer)
+
+load data local infile 'genomes.csv' into table genomes
+fields terminated by ','
+enclosed by '"'
+ignore 1 lines
+(organism_name, organism_groups, size, chromosomes, organelles, plasmids, assemblies)
+
+select organism_name from genomes where chromosomes = 5;
+
+select chromosomes, count(*) from genomes group by chromosomes;
+select chromosomes+plasmids as total, count(*) from genomes group by total;
+select chromosomes+plasmids as total, count(*) from genomes group by total having total > 10;
+select organism_name, size from genomes order by size desc limit 10;
+select organism_name from genomes where organism_name like "%Escherichia coli%";
+select organism_name, max(size) from genomes; -- this is a bad query!!
+
+
+TODO: invent a sampling_area table and analysis table, to demonstrate one-to-many and many-to-many
+TODO: populate tables with insert statements
+TODO: create table analysis (id, name, date, is_safe, ...)
+TODO: deletion cascades demo
+TODO: update values
+
+TODO: transactions, isolation levels?
+
+
+select distinct substring_index(organism_groups, ';', 1) from genomes;
+create table organism_types (id int auto_increment primary key) select distinct substring_index(organism_groups, ';', 1) as type from genomes;
+alter table genomes add column type_id integer not null after organism_groups;
+alter table genomes add constraint fk_type foreign key(type_id) references organism_types(id);
