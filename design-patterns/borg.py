@@ -5,12 +5,15 @@ class Borg:
         instance.__dict__ = cls._consciousness
         return instance
 
+def foo():
+    b1=Borg()
+    b1.foo = 5
+    b2=Borg()
+    b2.bar = 23
 
-b1=Borg()
-b1.foo = 5
-b2=Borg()
-print(b1.foo)
-print(b2.foo)
-b2.bar = 23
-print(b1.bar)
-print(Borg._consciousness)
+
+
+foo()
+
+b3 = Borg()
+print(b3.foo, b3.bar)
